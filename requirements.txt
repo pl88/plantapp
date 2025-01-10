@@ -1,6 +1,6 @@
-exceptiongroup==1.2.2
-iniconfig==2.0.0
-packaging==24.2
-pluggy==1.5.0
-pytest==8.3.4
-tomli==2.2.1
+numpy==2.2.1
+pandas==2.2.3
+python-dateutil==2.9.0.post0
+pytz==2024.2
+six==1.17.0
+tzdata==2024.2

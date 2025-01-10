@@ -1,20 +1,16 @@
 import sqlite3
 import pandas as pd
 
-from pathlib import Path
+from definitions import DATABASE_PATH, PLANTS_CSVTABLE_PATH
 
-from definitions import ROOT_DIR
+if DATABASE_PATH.exists():
+    conn = sqlite3.connect(DATABASE_PATH)
+else:
+    print("No database file found")
+    exit()
 
-DATASETS_DIR = ROOT_DIR / "datasets"
-
-database_path = DATASETS_DIR / "plants.db"
-plants_csvtable_path = DATASETS_DIR / "plantInfo-clean.csv"
-
-if not database_path.exists():
-    conn = sqlite3.connect(database_path)
-
-if plants_csvtable_path.exists():
-    plant_data = pd.read_csv(plants_csvtable_path)
+if PLANTS_CSVTABLE_PATH.exists():
+    plant_data = pd.read_csv(PLANTS_CSVTABLE_PATH)
     plant_data.to_sql("plants", conn, if_exists="replace", index=False)
 else:
     print("No csv file found")
