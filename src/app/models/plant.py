@@ -1,9 +1,6 @@
-from .base import Base
-from sqlalchemy import Column, Integer, String
+from models.base import BaseModel
+from models.base_plant import BasePlant
 
 
-class Plant(Base):
+class Plant(BasePlant, BaseModel):
     __tablename__ = "plant"
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-

@@ -17,9 +17,11 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-from app.models import Base
-target_metadata = Base.metadata
-from app.settings import settings
+from models.base_plant import BasePlant # TODO: refactor to get all resources from models/__ini__.py
+from models.plant import Plant
+from models.base import BaseModel
+target_metadata = BaseModel.metadata
+from settings import settings
 config.set_main_option("sqlalchemy.url", settings.SQLALCHEMY_DATABASE_URI)
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
