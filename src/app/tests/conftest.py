@@ -25,3 +25,7 @@ def test_db():
     finally:
         db.close()
         os.remove('test.db')
+
+@pytest.fixture
+def example_fixture():
+    return "trololo"
