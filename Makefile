@@ -10,3 +10,11 @@ start_www:
 
 tests:
 	cd src/app && pytest -vv
+
+docker_build:
+	docker build -t plantapp_img .
+
+docker_run:
+	docker container stop plantapp && \
+	docker container rm plantapp && \
+	docker run -d --name plantapp -p 8888:8888 plantapp_img
