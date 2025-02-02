@@ -1,3 +1,4 @@
+import os
 from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
@@ -22,7 +23,8 @@ from models.plant import Plant
 from models.base import BaseModel
 target_metadata = BaseModel.metadata
 from settings import settings
-config.set_main_option("sqlalchemy.url", settings.SQLALCHEMY_DATABASE_URI)
+SQLALCHEMY_DATABASE_URI = os.getenv("SQLALCHEMY_DATABASE_URI") or settings.SQLALCHEMY_DATABASE_URI
+config.set_main_option("sqlalchemy.url", SQLALCHEMY_DATABASE_URI)
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
