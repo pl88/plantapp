@@ -1,5 +1,6 @@
 install:
-	pip install -r requirements.txt
+	pip install -r requirements.txt && \
+	alembic upgrade head
 
 run:
 	python src/app/main.py
