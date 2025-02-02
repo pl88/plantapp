@@ -1,0 +1,38 @@
+version: '3.9'
+
+services:
+  # db:
+  #   ports:
+  #     - "5432:5432"
+  #   image: postgres
+  #   container_name: plantapp_db
+  #   environment:
+  #     POSTGRES_PASSWORD: plant_password
+  #     POSTGRES_USER: plant_admin
+  #     POSTGRES_DB: plantapp_db
+  #   volumes:
+  #     - plantapp_data:/var/lib/postgresql/data
+  #   restart: always
+
+  web:
+    ports:
+      - "8888:8888"
+    image: plantapp_img
+    container_name: plantapp_web
+    restart: always
+    volumes:
+
+      - plantapp_src:/plantapp/plantapp
+
+  # adminer:
+  #   image: adminer
+  #   restart: always
+  #   ports:
+  #     - 8080:8080
+
+
+volumes:
+  plantapp_data:
+    name: plantapp_data
+  plantapp_src:
+    name: plantapp_src
