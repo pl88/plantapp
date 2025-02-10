@@ -1,8 +1,8 @@
 import pytest
 from unittest.mock import patch
-from app.database.session import get_db
+from database.session import get_db
 
-@patch('app.database.session.SessionLocal')
+@patch('database.session.SessionLocal')
 def test_session(mock_session):
     session = next(get_db())
 

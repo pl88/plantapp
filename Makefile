@@ -5,11 +5,8 @@ install:
 run:
 	python src/app/main.py
 
-start_www:
-	uvicorn src.app.main:app --host 0.0.0.0 --port 8000
-
 tests:
-	cd src/app && pytest -vv
+	docker exec -it plantapp_web pytest
 
 docker_build:
 	docker build -t plantapp_img .
